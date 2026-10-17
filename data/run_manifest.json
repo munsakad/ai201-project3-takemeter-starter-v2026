@@ -1,0 +1,26 @@
+{
+  "seed": 42,
+  "base_model": "distilbert-base-uncased",
+  "epochs": 3,
+  "learning_rate": 2e-05,
+  "batch_size": 16,
+  "max_length": 128,
+  "split_sizes": {
+    "train": 139,
+    "validation": 31,
+    "test": 30
+  },
+  "dataset_counts": {
+    "algorithm": 100,
+    "formal_language": 100
+  },
+  "cold_annotations": 0,
+  "student_review": "pending",
+  "independent_criteria_authorship": false,
+  "sha256": {
+    "labels.csv": "8b965fc96fdd45bfcd4a39df34c388454cf41ae475ad27ce820e132b0506ab5b",
+    "criteria.md": "829085b9a9cd414ce7ce77f9a3bde3c8d1dc8d71f56c6736513201c3be9e804e",
+    "test_split.csv": "3744a03d75babef5a039848eecd16a77aefb0d5d07a32b44ffec52b25bfab8bd",
+    "results.json": "9f71a3e8b0f0e5d396ee6a186664bc4781f5213fd3446e4d2258b4f42ad06a8b"
+  }
+}

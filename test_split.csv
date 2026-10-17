@@ -1,0 +1,814 @@
+text,label,note
+"Voronoi Diagram Drawing Variations and Charateristics
+
+I am learning about Voronoi diagrams and I have seen that the Voronoi diagram of a set of points is drawn with straight line segments and rays.
+
+
+
+Similarly how can we draw the Voronoi diagram for the following: 
+(a) A set of lines and points?
+(b) A set of disjoint line segments?
+(c) A set of line segments forming a convex polygon?
+(d) A set of circles (non intersecting and no circle contains another)?
+
+
+
+For each of these sets of objects, how can we describe the shape of the boundary pieces that form the Voronoi diagram. 
+
+
+
+I believe that the distance between a point and another object is the smallest distance between the point and any point of the object.",algorithm,AI pre-labeled from community tags; assistant title/sample review; student review pending; source=https://cs.stackexchange.com/questions/118291/voronoi-diagram-drawing-variations-and-charateristics
+"Why is Dyck-2 so important for the Chomsky-Schützenberger theorem?
+
+I have read a lot of times, that models that can parse Dyck-2 are of great importance. It appears that Dyck-2 is interchangeably used like Dyck-N.
+
+
+Afaik the Chomsky-Schützenberger representation theorem states that you can convert and context-free language into a Dyck-N language, using a homomorphism and a intersection to regular language.
+
+
+It appears that Dyck-2 is already enough for that? Or is Dyck-2 simply necessary, but not sufficient, so it is just used to disprove a models ability to learn Dyck-N?
+
+
+I thought maybe you can represent any Dyck-N language by a Dyck-2 language that uses ""binary"" representations of brackets. This would theoretically be also possible for Dyck-1 by unary encoding, but decoding there would not be suffix-free, which breaks the homomorphism, I guess? Maybe someone could validate this approach, because I have never seen it formulated out.
+
+
+Thank you very much.",formal_language,AI pre-labeled from community tags; assistant title/sample review; student review pending; source=https://cs.stackexchange.com/questions/162654/why-is-dyck-2-so-important-for-the-chomsky-sch%c3%bctzenberger-theorem
+"What is the intuition behind Strassen's Algorithm?
+
+I came across Strassen's algorithm for matrix multiplication, which has time complexity $O(n^{2.81})$, significantly better than the naive $O(n^3)$. Of course, there have been several other improvements in matrix multiplication since Strassen, but my question is specific to this algorithm.
+
+
+If you see the algorithm, you'll notice that 7 matrices $M_1$ to $M_7$ have been defined as intermediate computation steps, and the final matrix product can be expressed in terms of these. I understand how to verify this claim, and arrive at the expression for the desired time complexity, but I'm unable to grasp the intuition behind this algorithm, i.e. why are the matrices $M_1$ through $M_7$ defined the way they are?
+
+
+Thank you!",algorithm,AI pre-labeled from community tags; assistant title/sample review; student review pending; source=https://cs.stackexchange.com/questions/130022/what-is-the-intuition-behind-strassens-algorithm
+"Is there a recommended process for designing CSGs (other than intuition)?
+
+I understand the differences between Regular, Context-Free, and Context-Sensitive languages. Designing a Regular Grammar can be easier if you have a DFA. Designing a CFG isn't too hard for the palindromic strings, but not easy per say for other combinations. But when asked to produce a CSG for Context-Sensitive language (not regular, not context-free), with restrictions on the terminals with respect to other terminals, it becomes difficult. I'm having trouble coming up with the production rules.
+
+
+
+Is there some recommended process or method that people use to come up with the rules? Or do they just keep trying out example strings to ""capture the essence"" of them?
+
+
+
+I would post an example, but this is for an assignment, so I can't give it away. In general I would just like to be better at coming up with the grammars.",formal_language,AI pre-labeled from community tags; assistant title/sample review; student review pending; source=https://cs.stackexchange.com/questions/103809/is-there-a-recommended-process-for-designing-csgs-other-than-intuition
+"Non-regular language whose prefix language is regular but not the whole set of words
+
+I've seen some questions regarding the regularity of prefix language of non-regular languages (for examples, here and here). In both cases, the prefix language ended up just being the whole set of words $\Sigma^*$, for $\Sigma$ the alphabet over which the languages are defined.
+
+
+So I was thinking of examples where $\mathit{pref}\,(L)$ would be regular, but different from $\Sigma^*$, for $L$ some non-regular language. For a regular $L$, I could just take a finite language, but, for a non-regular language, I have yet to find an example.
+
+
+Note that all languages over a unary alphabet are excluded, by one of the examples given in this question.
+
+
+An example where $\mathit{pref}\,(L)$ would not be regular would be $L=\{0^{n^2}1,\,n\in\mathbb{N}\,\}$, whose prefix language is $\mathit{pref}\,(L)=\{0\}^*\cup L$.",formal_language,AI pre-labeled from community tags; assistant title/sample review; student review pending; source=https://cs.stackexchange.com/questions/154128/non-regular-language-whose-prefix-language-is-regular-but-not-the-whole-set-of-w
+"Exact definition of average time complexity?
+
+Now I'm from a mathematical background, and I found CS people's definition of average time complexity a bit... confusing, to say the least.
+
+
+Here is a definition that I feel comfortable with:
+
+
+Consider a set $A$ of finite elements, with each $a\in A$ indicating individual input cases. There exists a function $T(a)\mapsto t\in\mathbb{N}$, i.e., running time for individual cases. Now we can define the average running time of input set to be simply
+$$\overline{T}(A)=\frac{\sum\limits_{a\in A}T(a)}{\#A},$$
+where $\#A$ denotes number of elements in $A$. For example, in QuickSort, we let $A_n=\{\text{array of $n$ unsorted integers}\}=\mathbb{Z}^n$.
+
+
+But now we have to do an additional step. An integer can take on an infinite set of values, so we naturally consider the memory constraint and instead confine each integer $i$ to be $L\le i\le U$. Now $\#(A_n)=(U-L+1)^n$, and we have a clearly defined $T(\cdot)$, and we can try to figure out $\overline{T}(A_n)$, although this is a very tough combinatorics problem.
+
+
+We can also consider $i$ to be a bounded real number, with the modification $\#(A_n)=\mu_{\text{Le}}(A_n)=(U-L)^n$, and
+$$
+\overline{T}(A_n)=\frac{1}{(U-L)^n}\int\limits_{a\in A_n}T(a)\,\mathrm{d}\mu_{\text{Le}}.
+$$
+
+
+What CS people did instead, is stating $T(a)
+\le T(\text{head})+T(\text{tail})+cn$ for some $c$, then simply averaging $T(\text{head})$ and $T(\text{tail})$ for varying head or tail lengths. This is stating implicitly somehow varying head (or tail) lengths are ""equally likely"", with out even considering the constraint that makes $A_n$ finite. This is like saying you can pick an odd number from the set of all integers at ""$50\%$ probability"" without even bothering to define what this ""probability"" means!
+
+
+So how is this average time complexity rigorously defined over an infinite, countable number of cases?
+
+
+If average time complexity is dependent on a set of rules of translating clearly defined recursion to what is essentially an intuitive ad-hoc definition each time, how can we define average time complexity for arbitrary code?",algorithm,AI pre-labeled from community tags; assistant title/sample review; student review pending; source=https://cs.stackexchange.com/questions/132522/exact-definition-of-average-time-complexity
+"If L is not regular and is a proper subset of L1, does it follow that L1 is not regular?
+
+If $L$ is not regular and $ L \subset L_1$, does it follow that $L_1$ is not regular also? Can you please provide an explanation? Thanks in advance.",formal_language,AI pre-labeled from community tags; assistant title/sample review; student review pending; source=https://cs.stackexchange.com/questions/123314/if-l-is-not-regular-and-is-a-proper-subset-of-l1-does-it-follow-that-l1-is-not
+"Language involving irrational number is not a CFL
+
+I am working through a hard exercise in a textbook, and I just can't figure out how to proceed. Here is the problem. Suppose we have the language $L = \{a^ib^j: i \leq j \gamma, i\geq 0, j\geq 1\}$ where $\gamma$ is some irrational number. How would I prove that $L$ is not a context-free language?
+
+
+
+In the case when $\gamma$ is rational, it's pretty easy to construct a grammar that accepts the language. But because $\gamma$ is irrational, I don't really know what to do. It doesn't look like any of the pumping lemmas would work here. Maybe Parikh's theorem would work here, since it would intuitively seem like this language doesn't have an accompanying semilinear Parikh image.
+
+
+
+This exercise is from ""A Second Course in Formal Languages and Automata Theory"" by Jeffrey Shallit, Exercise 25 of Chapter 4.
+
+
+
+I would really appreciate any help, or nudges in the right direction. Thank you!",formal_language,AI pre-labeled from community tags; assistant title/sample review; student review pending; source=https://cs.stackexchange.com/questions/105836/language-involving-irrational-number-is-not-a-cfl
+"Undecidability of ""is this CFG prefix-free?""
+
+I'm having difficulty proving undecidability of ""is this CFG prefix-free?"". (this proof is given as problem 5.32b in Sipser 3rd edition).
+
+
+Another thread has the very different question ""is this regular language prefix-free"". One of the answers in that thread claims to prove undecidability for CFLs (even though that did not explicitly ask for a proof of undecidability for CFLs) using the usual Post Correspondence Problem (PCP) method.
+
+
+The proof in the other thread claimed (as of Oct 11, 2020) that a certain CFL with an endmarker $\#$ is prefix free if and only if there's no PCP solution. However, it seems to be possible to have prefixes in the CFL even without any PCP solutions, which would mean the proof is wrong.
+
+
+I also tried using the fact that ""non-emptiness of intersection of two CFGs"" is undecidable. However, we are only able to use undecidability of CFGs being prefix-free to prove undecidability of intersection non-emptiness, not the other way around.",formal_language,AI pre-labeled from community tags; assistant title/sample review; student review pending; source=https://cs.stackexchange.com/questions/131109/undecidability-of-is-this-cfg-prefix-free
+"Example of two undecidable languages that cannot be mapping reduced to each other
+
+I want to find two undecidable languages $A$ and $B$ that $A$ cannot mapping (i.e. many-one) reduce to $B$, $B$ cannot reduce to $A$. One of my thought is to let $A$ be the halting problem, let $B$ be some non-Turing-recognizable language, then it is clear that $B$ cannot reduce to $A$, but I don't know which $B$ can I pick to show that $A$ cannot reduce to $B$",formal_language,AI pre-labeled from community tags; assistant title/sample review; student review pending; source=https://cs.stackexchange.com/questions/117436/example-of-two-undecidable-languages-that-cannot-be-mapping-reduced-to-each-othe
+"Winning strategy for a given game on graphs
+
+The game goes as follows. Two players are playing a game, player 1 and player 2, in which the first player starts by naming a hero $h_1$, then player 2 responds with a villain $v_1$ who has played in a movie with $h_1$. Then player 1 responds with another hero $h_2$ who has played in a movie together with $v_1$, and so forth. Each hero and villain can be used at most once. The first player that can not name any character (available heroes/villains do not have a common film with the last choice of the other player), loses the game. Player 1 always starts the game.
+
+
+
+The input is a set of heroes $H$, a set of villains $V$ ($|H| = |V| \geq 1$) and a family of movies $M$, where each movie is a set of heroes and villains who appeared in that movie.
+
+
+
+The question is: Can you, based on $H$, $V$ and $M$, decide which player wins the game assuming both players are playing optimally?
+
+
+
+
+
+Example:
+
+
+
+Given the following data: the heroes are Iron Man, Captain America, Thor and Spider-Man. The villains are Whiplash, Ultron, Thanos and Vulture. The movies are Avengers: Infinity War (stars Iron Man, Captain America, Thor, Thanos and Spider-Man) and Spider-Man: Homecoming (stars Iron Man, Vulture and Spider-Man). Can you decide which player has the winning strategy?
+
+
+
+
+
+My approach is to use maximum bipartite matching to find out which player has the winning strategy, because we can split the data in two sets, namely $H$ and $V$ and have relations between those two sets. The Hopcroft-Karp algorithm can take two of such sets and find out the maximum cardinality. Please correct me if I'm wrong: in the cases in which there is a perfect matching, player 2 wins and otherwise player 1 wins. Whenever there is a perfect matching, it means that player 2 has always had an answers to the hero that player 1 named.
+
+
+
+How would you solve this? Is there a better, more efficient solution than some maximum bipartite matching.",algorithm,AI pre-labeled from community tags; assistant title/sample review; student review pending; source=https://cs.stackexchange.com/questions/118508/winning-strategy-for-a-given-game-on-graphs
+"Isn't linear time O(n)?
+
+In the question in this video about quicksort luckily picking the median in each recursive call. Tim Roughgarden, the presenter, says at 11:22
+
+
+
+
+Partition needs really linear time, not just $O(n)$ time.
+
+
+
+
+What does he mean here? I thought linear time is $O(n)$. Does he mean $\Theta(n)$ or something else? I see how partition in quicksort here would be $\Theta(n)$ but I don't get the part that says ""not just $O(n)$ time"".",algorithm,AI pre-labeled from community tags; assistant title/sample review; student review pending; source=https://cs.stackexchange.com/questions/134138/isnt-linear-time-on
+"How do I calculate the Nth result of a context-free grammar?
+
+Given a context-free grammar and a maximum depth, how do I directly compute the Nth sentence without calculating or caching intermediary sentences?
+
+
+
+Take as an example the following grammar:
+
+
+
+(from http://www.nltk.org/howto/generate.html)
+
+
+
+S -> NP VP
+NP -> Det N
+PP -> P NP
+VP -> 'slept'
+VP -> 'saw' NP
+VP -> 'walked' PP
+Det -> 'the'
+Det -> 'a'
+N -> 'man'
+N -> 'park'
+N -> 'dog'
+P -> 'in'
+P -> 'with'
+
+
+
+
+Given a maximum depth of 4, it will deterministically generate the following 6 sentences:
+
+
+
+0 the man slept
+1 the park slept
+2 the dog slept
+3 a man slept
+4 a park slept
+5 a dog slept
+
+
+
+
+So the brute force way of finding the Nth sentence is to compute sentences 0..N, discard them, then return the Nth. But with a more complex grammar it's wasteful to recompute it every time and it's not possible to hold the current state in memory.
+
+
+
+But my question is, is there a way to directly compute the Nth sentence?
+
+
+
+Also, is it possible to do the reverse: given a the grammar, depth, and sentence, determent what's the sentences index of all possible sentences.
+Something like:
+
+
+
+>>> find_index_in_grammar(""a man slept"", grammar, depth=4)
+3
+
+
+
+
+
+Update
+
+
+To clarify: traversal order, lexicographical order, or ordering by length is not important as long as it's deterministic. The example above is just one possible ordering that is deterministic and would work. 
+
+
+
+What I've tried so far is to consider the grammar as a different numeric ""base"", with its sentences as specific numbers in that base. With the key difference being the ""base"" varies with the number of possible replacements at each branch in the grammar.
+
+
+
+
+def grammar_index(grammar, index):
+    sentence = [grammar.start()]
+    while set(sentence) & set(grammar._lhs_index):  # any non-terminals?
+        for i, symbol in enumerate(sentence):  # loop for the non terminal
+            possible_replacements = grammar._lhs_index.get(symbol)
+            if possible_replacements:  # if there is a replacement
+                base = len(possible_replacements)  # the len of replacements is the ""base""
+                rem = index % base
+                index = index // base 
+                replacement = possible_replacements[rem]
+                del sentence[i]
+                sentence[i:i] = replacement.rhs()
+            if index <= 0:
+                break
+        if index <= 0:
+            break
+    return ' '.join(str(s) for s in sentence)
+
+
+
+
+
+
+So this returns partially generated sentences with some duplicates as well.
+
+
+
+Pros: it is deterministic, fast
+
+
+
+Cons: has non terminals in the results...
+
+
+
+>>> for i in range(20): 
+...:     s = grammar_index(grammar, i)
+...:     print(i, s) 
+...:
+0 NP VP
+1 NP saw NP
+2 NP walked PP
+3 Det park slept
+4 NP saw Det park
+5 NP walked P Det park
+6 Det dog slept
+7 NP saw Det dog
+8 NP walked P Det dog
+9 a man slept
+10 Det park saw Det man",formal_language,AI pre-labeled from community tags; assistant title/sample review; student review pending; source=https://cs.stackexchange.com/questions/116321/how-do-i-calculate-the-nth-result-of-a-context-free-grammar
+"Shortest path in directed graphs with no more than $\log \log n $ negative edges
+
+Given a directed graph $G=(V,E)$ with $|V|=n$  vertices and some weight function $w\colon E\to \mathbb{R}$,
+I also know that there are at most $\log\log n$ negative weight edges in $G$, and $G$ does not have any negative cycles.
+
+
+
+
+Find minimum cost path from $s$ to $t$
+
+
+
+
+My try so far:
+
+
+I know that just running Bellman–Ford will be too naive, I thought generating a new
+$w'$ function like Johnson's algorithm does:
+
+
+Something like removing any step 1 negative $e=(u,v)$
+and running Dijkstra from $s$ as (single source shortest path) and $t$ (as single destination)
+after doing it for each edge $e$ total $\log\log n$ times, I can use shortest path as the function of
+$h$ like Johnson's algorithm, and it will run in $O(\log\log n \cdot n \log n)$
+
+
+I'm struggling with the proof of correctness for this function $w'$, and I'm not sure if my runtime is optimal as well.",algorithm,AI pre-labeled from community tags; assistant title/sample review; student review pending; source=https://cs.stackexchange.com/questions/146392/shortest-path-in-directed-graphs-with-no-more-than-log-log-n-negative-edges
+"Minimum circles to cover a set of points and avoid another set of points
+
+Points are in 2d euclidean space. Given a set of n points, A, and a set of m points, B, what is the minimally sized set of circles such that this set of circles covers all points in A and no point in B is covered by a circle?
+
+
+
+circles can have arbitrary radius
+
+
+
+any thoughts about the difficulty of this problem? any thoughts on non trivial exact algorithms?",algorithm,AI pre-labeled from community tags; assistant title/sample review; student review pending; source=https://cs.stackexchange.com/questions/120673/minimum-circles-to-cover-a-set-of-points-and-avoid-another-set-of-points
+"Does $L_1L_2 = L_2L_1$ imply $L_1 = L_2$?
+
+Let $L_1, L_2 \subseteq \Sigma^*$ be two languages, where $\Sigma$ is some finite Alphabet.
+
+
+
+Does $L_1L_2 = L_2L_1$ imply $L_1 = L_2$?
+
+
+
+What if $L_1$ and $L_2$ are regular languages?
+
+
+
+Can you give counterexamples?",formal_language,AI pre-labeled from community tags; assistant title/sample review; student review pending; source=https://cs.stackexchange.com/questions/109771/does-l-1l-2-l-2l-1-imply-l-1-l-2
+"Context free grammar for $L = \{w \text{ | }w \in \{a,b\}^*, |w|_a=|w|_b-1\}$
+
+I'm trying to find a grammar for $L = \{w \text{ | }w \in \{a,b\}^*, |w|_a=|w|_b-1\}$, which is proving to be tricky.
+
+
+I know that $L_2 = \{w \text{ | }w \in \{a,b\}^*, |w|_a=|w|_b\}$ has the following one, so I have been trying to modify it so that I ""force"" to have one more $b$, but I don't see how to do this. The obvious choice would be to replace $\epsilon$ with $b$, but that would potentially get two more $b$'s. Is there a trick for this one?
+
+
+$$\begin{align}
+  S &\to \epsilon \\
+  S &\to aSbS \\
+  S &\to bSaS \enspace.
+\end{align}$$",formal_language,AI pre-labeled from community tags; assistant title/sample review; student review pending; source=https://cs.stackexchange.com/questions/134868/context-free-grammar-for-l-w-text-w-in-a-b-w-a-w-b-1
+"Proving that two languages both represent valid bracket sequences
+
+I have two languages $L_1$ and $L_2$, both subsets of $\{0, 1\}^*$, defined as follows:
+
+
+For $L_1$, we have that
+
+
+
+$01 \in L$
+
+
+If $w \in L$, then $0w1 \in L$
+
+
+If $w_1, w_2 \in L$, then $w_1w_2 \in L$
+
+
+
+For $L_2$, we have that
+
+
+
+$01 \in L_2$
+
+
+If $w \in L_2$, then if $w_1w_2 = w$, then $w_101w_2 \in L_2$ as well
+
+
+
+I am trying to show that both of these languages are equivalent; that $L_1 \subseteq L_2$ and vice versa.
+
+
+I've thought for a while, and the best idea I've had is that both $L_1$ and $L_2$ seem to contain all valid bracket sequences. That is, the strings in $L_1$ and $L_2$ are exactly the strings where
+
+
+
+For any prefix of the string, the number of $0$s is $\geq$ than the number of $1$s
+
+
+The total number of $0$s is equal to the total number of $1$s
+
+
+
+However, when I try to show that every string in $L_1$ is also in $L_2$ via structural induction, I get stuck. For instance, if I suppose that $w \in L_1$ and I want to show that $0w1 \in L_2$, I am unable to see how to decompose $0w1$ into the rules specified by $L_2$.
+
+
+Can someone provide a solution to this problem or give me some hints?",formal_language,AI pre-labeled from community tags; assistant title/sample review; student review pending; source=https://cs.stackexchange.com/questions/169602/proving-that-two-languages-both-represent-valid-bracket-sequences
+"Are weakly polynomial time algorithms truly polynomial?
+
+I've been looking through a ton of sources to try and understand the definitions of strongly and weakly polynomial time algorithms. Wikipedia
+states an algorithm runs in strongly polynomial time if
+
+
+
+
+  
+  
+the number of operations in the arithmetic model of computation is bounded by a polynomial in the number of integers in the input instance; and
+
+  
+the space used by the algorithm is bounded by a polynomial in the size of the input.
+
+  
+
+
+
+
+A weakly polynomial time algorithm is then just an ""algorithm that runs in polynomial time but that is not strongly polynomial.""
+
+
+
+What I'm confused about is how weakly polynomial time algorithms can actually be said to be polynomial. As stated in this post in reference to weakly polynomial time algorithms,
+
+
+
+
+  
+The algorithm is already polynomial time in the arithmetic model, so as long as its space is bounded in the TM model then the rest of the algorithm is still polynomial time in the TM model.
+  Think of it like this, when converting from the arithmetic model to the TM model, the only thing that can go wrong is the space. The numbers you produce need to be representable in a number of bits that is polynomial in the number of bits in the input. So long as that holds, the rest of the algorithm is still polynomial time in the TM model.
+
+
+
+
+
+I understand the difference between the arithmetic model and the TM model. But this quote and the wikipedia definition itself seem to imply that a weakly polynomial time algorithm will not run in polynomial time on a TM. This being because (to my understanding) if the space being used isn't bound by a polynomial in the size of the input, just the time spent allocating the space necessary to run the algorithm on a TM eliminates any hope of polynomial time. The classic example is in the post I linked above and the Wikipedia article and involves calculating $2^{2^n}$ given $2^n$.
+
+
+
+So how can we say weakly polynomial algorithms are still polynomial? There seems to be a consensus that weakly polynomial is better than pseudo-polynomial, but aren't they both not polynomial on a TM?
+
+
+
+Edit: I would also like to add that confusingly this post states that 
+
+
+
+
+  
+Consider running either one on a Turing Machine. Both will run in a number of steps polynomial in the length of binary-encoded input.
+
+
+
+
+
+This seems to contradict the previous post I linked which states
+
+
+
+
+  
+Any strongly-polynomial time algorithm can be converted into a polynomial time algorithm on a TM by replacing the arithmetic operations with equivalent algorithms in the TM model.
+
+
+
+
+
+suggesting that the difference is weakly polynomial time algorithms don't run in polynomial time on a TM. Either I'm missing something fundamental or multiple definitions seem to be floating around.",algorithm,AI pre-labeled from community tags; assistant title/sample review; student review pending; source=https://cs.stackexchange.com/questions/120483/are-weakly-polynomial-time-algorithms-truly-polynomial
+"Can we solve $\mathrm{MFVS} \leq 1$ in linear (or subquadratic) time?
+
+$\mathrm{MFVS} \leq 1$ is a concise way of writing the following decision problem:
+
+
+
+
+Let $G = (V, E)$ be a directed graph. Is there a $v \in V$ such that every cycle in $G$ passes through $v$?
+
+
+
+
+(More generally, $\mathrm{MFVS}$ stands for minimal feedback vertex set, the problem of finding the smallest set of vertices such that every cycle passes through at least one of them. In general, MFVS is NP-complete.)
+
+
+There is a trivial $\mathcal O(VE)$ algorithm: for every vertex $v$, use a $\mathcal O(E)$ cycle-finding algorithm, like a topological sort, to check if there is a cycle in $G$ that does not pass through $v$. I am wondering if we can do better: is it possible to solve this problem, either deterministically or probabilistically, in $\mathcal O(E^{2 - \epsilon})$, or even (ideally) in $\mathcal O(E)$?
+
+
+There is a simple algorithm that seems promising: start with a set of candidate vertices $X = V$, and then alternate between:
+
+
+
+picking a $v \in X$ and testing if it forms a feedback vertex set by itself; if not, remove it from $X$;
+
+
+finding a random cycle in $G$, and removing all vertices from $X$ that are not on that cycle.
+
+
+
+Unfortunately, it is possible for there to be a large set of vertices so that the vast majority of cycles contain the vast majority of those vertices, even if the answer to the decision problem is negative. So there is a class of graphs on which the above turns into a quadratic algorithm (with high probability) after all.",algorithm,AI pre-labeled from community tags; assistant title/sample review; student review pending; source=https://cs.stackexchange.com/questions/164516/can-we-solve-mathrmmfvs-leq-1-in-linear-or-subquadratic-time
+"Is the following language context free $\{xy\mid |x|=|y|\land \#_a(x)=\#_b(y)\}$?
+
+I was discussing context free languages with some friends, when we came up with the following language over the alphabet $\Sigma=\{a,b\}$:
+$$L=\{xy\mid |x|=|y|\land \#_a(x)=\#_b(y)\}.$$
+
+
+Intuitively, the language is defined by all words of even length having the same number of $a$s in the first half as the number of $b$s in the second half. We have realized that this is equivalent to
+$$\{xy\mid |\#_a(x)=\#_b(y)\land \#_b(x)=\#_a(y)\}.$$
+
+
+The language seems not to be context free, since the very related language $L_2$ over the alphabet $\{a,b,c,d\}$ defined by
+$$L_2 = \big\{xy\mid x\in \{a,b\}^*, y\in\{c,d\}^* , |x|=|y|, \#_a(x) = \#_d(y) \big\}$$
+is not (using the pumping lemma for CFL).
+
+
+However, all the methods we have tried failed to show this. we were even able to show that the pumping lemma does not help with this language.
+We have also tried to instersect the language $L$ with some regular language hoping to get some well-known non-CFL language, however, we were not able to find such a language.
+
+
+We have also tried to design a PDA or a context free grammar for this language, but we also failed to.
+
+
+The question came from pure curiousity. I would appreciate any help or hint.",formal_language,AI pre-labeled from community tags; assistant title/sample review; student review pending; source=https://cs.stackexchange.com/questions/171613/is-the-following-language-context-free-xy-mid-x-y-land-ax-by
+"Algorithm to identify contiguous repeated series of lines in a long string
+
+I would like an algorithm that can identify repeated parts of big stack traces like this:
+
+
+
+java.lang.StackOverflowError
+at transform.Erasure$Eraser.typed1(Erasure.scala:789)
+at typechecker.Typers$Typer.runTyper$1(Typers.scala:5640)
+at typechecker.Typers$Typer.typedInternal(Typers.scala:5672)
+at typechecker.Typers$Typer.body$2(Typers.scala:5613)
+at typechecker.Typers$Typer.typed(Typers.scala:5618)
+at typechecker.Typers$Typer.$anonfun$typed1$38(Typers.scala:4752)
+at typechecker.Typers$Typer.silent(Typers.scala:700)
+at typechecker.Typers$Typer.normalTypedApply$1(Typers.scala:4754)
+at typechecker.Typers$Typer.typedApply$1(Typers.scala:4801)
+at typechecker.Typers$Typer.typedInAnyMode$1(Typers.scala:5586)
+at typechecker.Typers$Typer.typed1(Typers.scala:5603)
+at transform.Erasure$Eraser.typed1(Erasure.scala:789)
+at typechecker.Typers$Typer.runTyper$1(Typers.scala:5640)
+at typechecker.Typers$Typer.typedInternal(Typers.scala:5672)
+at typechecker.Typers$Typer.body$2(Typers.scala:5613)
+at typechecker.Typers$Typer.typed(Typers.scala:5618)
+at typechecker.Typers$Typer.typedQualifier(Typers.scala:5723)
+at typechecker.Typers$Typer.typedQualifier(Typers.scala:5731)
+at transform.Erasure$Eraser.adaptMember(Erasure.scala:714)
+at transform.Erasure$Eraser.typed1(Erasure.scala:789)
+at typechecker.Typers$Typer.runTyper$1(Typers.scala:5640)
+at typechecker.Typers$Typer.typedInternal(Typers.scala:5672)
+at typechecker.Typers$Typer.body$2(Typers.scala:5613)
+at typechecker.Typers$Typer.typed(Typers.scala:5618)
+at typechecker.Typers$Typer.$anonfun$typed1$38(Typers.scala:4752)
+at typechecker.Typers$Typer.silent(Typers.scala:700)
+at typechecker.Typers$Typer.normalTypedApply$1(Typers.scala:4754)
+at typechecker.Typers$Typer.typedApply$1(Typers.scala:4801)
+at typechecker.Typers$Typer.typedInAnyMode$1(Typers.scala:5586)
+at typechecker.Typers$Typer.typed1(Typers.scala:5603)
+at transform.Erasure$Eraser.typed1(Erasure.scala:789)
+at typechecker.Typers$Typer.runTyper$1(Typers.scala:5640)
+at typechecker.Typers$Typer.typedInternal(Typers.scala:5672)
+at typechecker.Typers$Typer.body$2(Typers.scala:5613)
+at typechecker.Typers$Typer.typed(Typers.scala:5618)
+at typechecker.Typers$Typer.typedQualifier(Typers.scala:5723)
+at typechecker.Typers$Typer.typedQualifier(Typers.scala:5731)
+at transform.Erasure$Eraser.adaptMember(Erasure.scala:714)
+at transform.Erasure$Eraser.typed1(Erasure.scala:789)
+at typechecker.Typers$Typer.runTyper$1(Typers.scala:5640)
+at typechecker.Typers$Typer.typedInternal(Typers.scala:5672)
+at typechecker.Typers$Typer.body$2(Typers.scala:5613)
+at typechecker.Typers$Typer.typed(Typers.scala:5618)
+at typechecker.Typers$Typer.$anonfun$typed1$38(Typers.scala:4752)
+at typechecker.Typers$Typer.silent(Typers.scala:700)
+at typechecker.Typers$Typer.normalTypedApply$1(Typers.scala:4754)
+at typechecker.Typers$Typer.typedApply$1(Typers.scala:4801)
+at typechecker.Typers$Typer.typedInAnyMode$1(Typers.scala:5586)
+at typechecker.Typers$Typer.typed1(Typers.scala:5603)
+at transform.Erasure$Eraser.typed1(Erasure.scala:789)
+at typechecker.Typers$Typer.runTyper$1(Typers.scala:5640)
+at typechecker.Typers$Typer.typedInternal(Typers.scala:5672)
+at typechecker.Typers$Typer.body$2(Typers.scala:5613)
+at typechecker.Typers$Typer.typed(Typers.scala:5618)
+at typechecker.Typers$Typer.typedQualifier(Typers.scala:5723)
+at typechecker.Typers$Typer.typedQualifier(Typers.scala:5731)
+at transform.Erasure$Eraser.adaptMember(Erasure.scala:714)
+at transform.Erasure$Eraser.typed1(Erasure.scala:789)
+at typechecker.Typers$Typer.runTyper$1(Typers.scala:5640)
+at typechecker.Typers$Typer.typedInternal(Typers.scala:5672)
+at typechecker.Typers$Typer.body$2(Typers.scala:5613)
+at typechecker.Typers$Typer.typed(Typers.scala:5618)
+at typechecker.Typers$Typer.$anonfun$typed1$38(Typers.scala:4752)
+
+
+
+
+With a bit of inspection, it's clear that this segment is being repeated three times:
+
+
+
+at typechecker.Typers$Typer.runTyper$1(Typers.scala:5640)
+at typechecker.Typers$Typer.typedInternal(Typers.scala:5672)
+at typechecker.Typers$Typer.body$2(Typers.scala:5613)
+at typechecker.Typers$Typer.typed(Typers.scala:5618)
+at typechecker.Typers$Typer.$anonfun$typed1$38(Typers.scala:4752)
+at typechecker.Typers$Typer.silent(Typers.scala:700)
+at typechecker.Typers$Typer.normalTypedApply$1(Typers.scala:4754)
+at typechecker.Typers$Typer.typedApply$1(Typers.scala:4801)
+at typechecker.Typers$Typer.typedInAnyMode$1(Typers.scala:5586)
+at typechecker.Typers$Typer.typed1(Typers.scala:5603)
+at transform.Erasure$Eraser.typed1(Erasure.scala:789)
+at typechecker.Typers$Typer.runTyper$1(Typers.scala:5640)
+at typechecker.Typers$Typer.typedInternal(Typers.scala:5672)
+at typechecker.Typers$Typer.body$2(Typers.scala:5613)
+at typechecker.Typers$Typer.typed(Typers.scala:5618)
+at typechecker.Typers$Typer.typedQualifier(Typers.scala:5723)
+at typechecker.Typers$Typer.typedQualifier(Typers.scala:5731)
+at transform.Erasure$Eraser.adaptMember(Erasure.scala:714)
+at transform.Erasure$Eraser.typed1(Erasure.scala:789)
+
+
+
+
+The end goal is so I can print out stack traces of recursive functions in a nicer fashion
+
+
+
+java.lang.StackOverflowError
+at transform.Erasure$Eraser.typed1(Erasure.scala:789)
+------------------------- Repeated 3x -------------------------
+at typechecker.Typers$Typer.runTyper$1(Typers.scala:5640)
+at typechecker.Typers$Typer.typedInternal(Typers.scala:5672)
+at typechecker.Typers$Typer.body$2(Typers.scala:5613)
+at typechecker.Typers$Typer.typed(Typers.scala:5618)
+at typechecker.Typers$Typer.$anonfun$typed1$38(Typers.scala:4752)
+at typechecker.Typers$Typer.silent(Typers.scala:700)
+at typechecker.Typers$Typer.normalTypedApply$1(Typers.scala:4754)
+at typechecker.Typers$Typer.typedApply$1(Typers.scala:4801)
+at typechecker.Typers$Typer.typedInAnyMode$1(Typers.scala:5586)
+at typechecker.Typers$Typer.typed1(Typers.scala:5603)
+at transform.Erasure$Eraser.typed1(Erasure.scala:789)
+at typechecker.Typers$Typer.runTyper$1(Typers.scala:5640)
+at typechecker.Typers$Typer.typedInternal(Typers.scala:5672)
+at typechecker.Typers$Typer.body$2(Typers.scala:5613)
+at typechecker.Typers$Typer.typed(Typers.scala:5618)
+at typechecker.Typers$Typer.typedQualifier(Typers.scala:5723)
+at typechecker.Typers$Typer.typedQualifier(Typers.scala:5731)
+at transform.Erasure$Eraser.adaptMember(Erasure.scala:714)
+at transform.Erasure$Eraser.typed1(Erasure.scala:789)
+-------------------------------------------------------------
+at typechecker.Typers$Typer.runTyper$1(Typers.scala:5640)
+at typechecker.Typers$Typer.typedInternal(Typers.scala:5672)
+at typechecker.Typers$Typer.body$2(Typers.scala:5613)
+at typechecker.Typers$Typer.typed(Typers.scala:5618)
+at typechecker.Typers$Typer.$anonfun$typed1$38(Typers.scala:4752)
+
+
+
+
+I'm not sure how feasible this is, but I'd be happy for any and all possible solutions even if they have their own limitations and constraints. Preliminary Googling didn't find me anything, but quite likely I just don't know what to google",algorithm,AI pre-labeled from community tags; assistant title/sample review; student review pending; source=https://cs.stackexchange.com/questions/102463/algorithm-to-identify-contiguous-repeated-series-of-lines-in-a-long-string
+"Proving Equivalence of Two Regular Expressions
+
+Consider the regular expressions
+
+
+
+$(1+01)^*(0+\epsilon)$
+
+
+$(1^*011^*)^*(0+\epsilon) + 1^*(0+\epsilon)$,
+
+
+
+where $\epsilon$ is the empty string. I need to determine if these expressions are equivalent. Intuitively it seems they are equivalent because they seem to generate the languages of strings without two consecutive $0s$.
+
+
+a. Is this correct?
+
+b. How it can be proved mathematically?",formal_language,AI pre-labeled from community tags; assistant title/sample review; student review pending; source=https://cs.stackexchange.com/questions/150895/proving-equivalence-of-two-regular-expressions
+"Can one prove directly that the language given by a regular grammar is the language given by some regular expression?
+
+The let $L$ be a language. The following are equivalent:
+
+
+
+$L$ is given by a deterministic or non-deterministic finite accepter.
+
+
+$L$ is given by a regular grammar.
+
+
+$L$ is given by a regular expression.
+
+
+
+The proof of this equivalence in Linz' Introduction to Formal Languages and Automata consists in showing $(1\iff 2)$ and $(1\iff 3)$. Most of the proof is fine, yet the step $(1\implies 3)$ by means of generalized transition graphs is rather tedious.
+
+
+So I wondered: is there a direct proof of $(2\implies 3)$? That is, a proof that does not rely on finite automata.
+
+
+I understand the answer may be a simple ""no"", or a ""yes, but the proof becomes even more tedious"", yet I found it worthwhile to check.",formal_language,AI pre-labeled from community tags; assistant title/sample review; student review pending; source=https://cs.stackexchange.com/questions/170385/can-one-prove-directly-that-the-language-given-by-a-regular-grammar-is-the-langu
+"Minimum Number of Edges Added to a DAG to get Unique Topological Order
+
+The question is simple:
+
+
+
+
+  
+Given an unweighted directed acyclic graph, $G = (V, E)$, what is the minimum number of directed edges we need to add to $E$ such that the resulting graph $G = (V, E')$ has a unique topological ordering?
+
+
+
+
+
+I initially approached this in a greedy way: determine the longest vertex-disjoint paths, then try to merge them head to tail. This seems to not work for parallel paths however, because we may break constraints imposed by the DAG. Since an equivalent goal is to impose a Hamiltonian Path on the graph, we could always use two or fewer edges to merge parallel paths such that we end up with one long path. Perhaps we could alternate between greedily merging longest paths in succession, then merging parallel paths and repeating. I'm not convinced this will be optimal however. 
+
+
+
+For any pair of unordered nodes $A$ and $B$ it seems we have the following 4 options:
+
+
+
+
+$A$ and $B$ have no common ancestor(s) nor common descendant(s).
+
+
+$A$ and $B$ have common ancestor(s) but no common descendant(s). ($\land$ structure)
+
+
+$A$ and $B$ have no common ancestor(s) but do have common descendant(s). ($\lor$ structure)
+
+
+$A$ and $B$ have common ancestor(s) and have common descendant(s). ($\diamond$ structure)
+
+
+
+
+With this, my next idea would be to go through all pairs of unordered nodes and determine which of these 4 cases it falls into, then add an edge between the nodes that would decrease the set of unordered nodes by as much as possible. Would this greedy strategy work either? I cannot think of any edge cases that would prevent this from working, but a greedy proof of this also does not seem to work.
+
+
+
+Is there a polynomial time algorithm to answer this question? If not, is there a reduction from an NP-complete (or NP-hard) problem?
+
+
+
+
+
+Maybe a related question would be ""Given an undirected graph $G$, what is the minimum number of edges needed to be added such that the resulting graph has a Hamiltonian Path?"" However, this question seems implicitly more difficult because it's NP-complete just to determine if $G$ has a Hamiltonian path, so I would think the problem becomes easier in a DAG.",algorithm,AI pre-labeled from community tags; assistant title/sample review; student review pending; source=https://cs.stackexchange.com/questions/106753/minimum-number-of-edges-added-to-a-dag-to-get-unique-topological-order
+"Choose non-adjacent numbers from intervals
+
+Given a list of intervals with integral endpoints, we want to find out if we can choose one integer from each interval so that no two chosen numbers are adjacent. Can we do this in polynomial time?
+
+
+My attempt is the following greedy strategy: Sort the intervals by the smaller left endpoint, breaking ties by the smaller right endpoint. Then, as long as possible, choose the leftmost feasible number from each interval.
+
+
+However, this doesn't work: the first interval may be $[5,9]$ and the second interval $[6,6]$. Choosing $5$ from the first interval rules out choosing anything from the second interval. It would be better to choose $6$ from the second interval and $8$ from the first interval.",algorithm,AI pre-labeled from community tags; assistant title/sample review; student review pending; source=https://cs.stackexchange.com/questions/155239/choose-non-adjacent-numbers-from-intervals
+"Test if there exists an integer k to add to one sequence to make it a subsequence of another sequence
+
+Suppose that sequence $A$ contains $n$ integers $a_1,a_2,a_3,\ldots,a_n$ and sequence $B$ contains $m$ integers $b_1,b_2,b_3,\ldots,b_m$. We know that $m \geq n$. We assume without loss of generality that both sequences $A$ and $B$ are sorted in ascending order.
+
+
+
+What's the fastest algorithm to determine if there exists an integer $k$ such that the sequence $a_1+k,a_2+k,a_3+k,\ldots,a_n+k$ is a subsequence of the sequence $B$?
+
+
+
+Here is a naive algorithm, which would take $O(n(m-n))$ time. Store the sequence $B$ as a hashtable. For each element $b_j$ of the $B$ (except the largest $n$ elements), use $b_j-a_1$ as your guess at $k$; you can verify this guess by checking whether each of $a_1+k,\dots,a_n+k$ are in the hashtable $B$. This takes $O(n)$ expected time per guess at $k$, and you make $m-n$ guesses, so in total the expected running time is $O(n(m-n))$. Can we do better?
+
+
+
+I came across this problem while trying to match two binary images (testing whether one image contains the other).",algorithm,AI pre-labeled from community tags; assistant title/sample review; student review pending; source=https://cs.stackexchange.com/questions/117706/test-if-there-exists-an-integer-k-to-add-to-one-sequence-to-make-it-a-subsequenc
+"Language containing all unambiguous grammars
+
+Suppose $L$ is the language of the unambiguous grammars. That is, a sentence $w\in{}L$ if it is a string that describes an unambiguous context-free grammar.
+
+
+
+Considering that deciding whether a context-free grammar is ambiguous is non-decidable, would it be correct to say that $L$ exists but is not recursively enumerable?",formal_language,AI pre-labeled from community tags; assistant title/sample review; student review pending; source=https://cs.stackexchange.com/questions/114694/language-containing-all-unambiguous-grammars
+"How does editing software (like Microsoft word or Gmail) pick the 2nd string to compare in Levenshtein distance?
+
+I understand the textbook explanation of how to use dynamic programming to find the minimum edit distance between 2 strings but how do we get to pick the 2nd string?
+
+
+I don't think the entire dictionary is compared as sometimes the difference is either in the middle or the end.  I assume that in the end, what is suggested is the string that has the minimum edit distance after creating a certain number of $n \times m$ tables, where $n$ is the typed string length and $m$ is that of the other words that may be close.",algorithm,AI pre-labeled from community tags; assistant title/sample review; student review pending; source=https://cs.stackexchange.com/questions/143708/how-does-editing-software-like-microsoft-word-or-gmail-pick-the-2nd-string-to
+"Find the number using binary search against one possible lie
+
+We all know this classic problem,  ""there is some hidden number and you have to interactively guess it."", which could be solved using binary search when we know that maximum number that we can guess.
+
+
+
+But what if the interactor may lie to us in one case? For example, the number is $3$ and the maximum number we can guess is $10$, but when we ask whether it is greater than $5$ and it replies yes and for the rest of queries it answers correctly. A simple binary search would fail.
+
+
+
+How to proceed in this case? What is the minimum number of query in the worst case?",algorithm,AI pre-labeled from community tags; assistant title/sample review; student review pending; source=https://cs.stackexchange.com/questions/126782/find-the-number-using-binary-search-against-one-possible-lie
