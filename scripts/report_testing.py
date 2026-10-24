@@ -57,7 +57,12 @@ def main():
     lines += ['', '## Agreement Report', '',
               'Pending student annotations and TF-provided data/staff_labels.csv. No agreement rate or human adjudication is claimed. The staff running-forum taxonomy differs from this project’s CS-topic taxonomy; its disagreements cannot directly identify a CS label-pair error.', '',
               'Criterion 4 separately requires an unaided independent human audit of 20 frozen CS posts. The staff exercise cannot substitute for it. Criterion 3 is a dataset property repeated for context, not three independent experiments.']
-    (ROOT / 'TESTING_REPORT.md').write_text('\n'.join(lines) + '\n', encoding='utf-8')
+    report = '\n'.join(lines) + '\n'
+    (ROOT / 'TESTING_REPORT.md').write_text(report, encoding='utf-8')
+    readme = ROOT / 'README.md'
+    marker = '<!-- generated-part2-report -->'
+    original = readme.read_text(encoding='utf-8').split(marker)[0].rstrip()
+    readme.write_text(original + '\n\n' + marker + '\n\n' + report, encoding='utf-8')
 
 
 if __name__ == '__main__':

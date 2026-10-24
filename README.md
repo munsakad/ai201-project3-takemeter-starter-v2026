@@ -148,3 +148,14 @@ Prediction recorded before reading baseline output: the fine-tuned model should 
 Keep criteria.md, label_definitions.txt, and labels.csv frozen. Run seeds 42, 7, and 2024 with original settings first. Diagnose those results before choosing one training change. Confidence is already criterion 5, not a new stretch feature. No optional stretch is claimed.
 
 The staff answer key is not present. Student-authored staff labels, staff comparison/adjudication, and the independent human audit remain pending; AI labels cannot establish human agreement.
+
+### One improvement selected before the after-run
+
+The tokenizer audit found 153/200 posts exceed 128 tokens; 81 exceed 256.
+Seed 42 before has one algorithm -> formal_language error, at low confidence
+(mean confidence for the wrong prediction 0.5039). The topic decision can depend
+on a requested object late in a technical question. Test one change only:
+MAX_LENGTH 128 -> 256, retaining all labels, definitions, criteria, epochs,
+learning rate, batches, and seeds. This is a hypothesis about lost context,
+not proof that truncation caused the error. Longer input may hurt or fail to
+help. The other two before trials finish with the original 128-token setting.

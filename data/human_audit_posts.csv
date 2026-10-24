@@ -1,0 +1,282 @@
+row_index,text,human_label
+151,"Regularity of language of words containing a square
+
+$$L = \{w\mid w\text{ contains a substring of form }yy\text{, where }y\text{ is any non-empty string}\}.$$ Is this language regular? We do not know what $y$ looks like in advance. And why is this language regular or not regular?",
+72,"How to edge-color a directed acyclic graph so that every path visits none or all edges of each color?
+
+Given a directed acyclic graph $G$ and a start vertex $s$ and an end vertex $e$, consider a coloring of the edges valid if, for every path from $s$ to $e$ and every color $c$, either $c$ is never encountered along that path, or every edge that is colored $c$ is visited by that path.
+
+
+Given $G,s,e$, I would like to find a valid coloring that uses the minimal number of colors.  Is there an efficient algorithm for this problem?
+
+
+I show below an example graph and a sample solution.  The circle on the left is the starting vertex, the filled circle on the right is the end vertex.",
+114,"I'm trying to understand why every language has an infinite number of TMs that accept it
+
+I found the following answer:
+
+
+
+
+$L_{17} = \{ \langle M \rangle \mid \text{$M$ is a TM, and $M$ is the only TM that accepts $L(M)$} \}$.
+
+
+
+R. This is the empty set, since every language has an infinite number of TMs that accept it.
+
+
+
+
+
+As I know number of TMs is $\aleph_0$ and number of languages is $2^{\aleph_0}$, so how can it be possible that ""every language has an infinite number of TMs that accept it""?
+
+
+source of the solution here",
+10,"What is the most efficient algorithm to compute polynomial coefficients from its roots?
+
+Given $n$ roots, $x_1, x_2, \dotsc, x_n$, the corresponding monic polynomial is
+
+
+$$y = (x-x_1)(x-x_2)\dotsm(x-x_n) = \prod_{i}^n (x - x_i)$$
+
+
+To get the coefficients, i.e., $y = \sum_{i}^n a_i x^i$, a straightforward expansion requires $O \left(n^2\right)$ steps.
+
+
+Alternatively, if $x_1, x_2, \dotsc, x_n$ are distinct, the problem is equivalent to polynomial interpolation with $n$ points: $(x_1, 0), (x_2, 0), \dotsc, (x_n, 0)$. The fast polynomial interpolation algorithm can be run in $O \left( n \log^2(n) \right)$ time.
+
+
+I want to ask whether there is any more efficient algorithm better than $O \left(n^2\right)$? Even if there are duplicated values among $\{x_i\}$? If it helps, we can assume that the polynomial is over some prime finite field, i.e., $x_i \in \mathbf{F}_q$.",
+139,"Why is { w | |w| mod 3 = #_a(w) mod 3 } a Regular Language?
+
+Why is $L=\{w \mid ~|w|\bmod3=\#_a(w)\bmod3\}$ a regular language?
+
+
+$\#_a(w)$ is the number of $a$'s in $w$.
+
+
+So far every language that I saw containing modulo was a regular language. Can you give me an example of a non-regular language with a modulo operator in it?",
+134,"Is there a recommended process for designing CSGs (other than intuition)?
+
+I understand the differences between Regular, Context-Free, and Context-Sensitive languages. Designing a Regular Grammar can be easier if you have a DFA. Designing a CFG isn't too hard for the palindromic strings, but not easy per say for other combinations. But when asked to produce a CSG for Context-Sensitive language (not regular, not context-free), with restrictions on the terminals with respect to other terminals, it becomes difficult. I'm having trouble coming up with the production rules.
+
+
+
+Is there some recommended process or method that people use to come up with the rules? Or do they just keep trying out example strings to ""capture the essence"" of them?
+
+
+
+I would post an example, but this is for an assignment, so I can't give it away. In general I would just like to be better at coming up with the grammars.",
+107,"Non-regular language whose prefix language is regular but not the whole set of words
+
+I've seen some questions regarding the regularity of prefix language of non-regular languages (for examples, here and here). In both cases, the prefix language ended up just being the whole set of words $\Sigma^*$, for $\Sigma$ the alphabet over which the languages are defined.
+
+
+So I was thinking of examples where $\mathit{pref}\,(L)$ would be regular, but different from $\Sigma^*$, for $L$ some non-regular language. For a regular $L$, I could just take a finite language, but, for a non-regular language, I have yet to find an example.
+
+
+Note that all languages over a unary alphabet are excluded, by one of the examples given in this question.
+
+
+An example where $\mathit{pref}\,(L)$ would not be regular would be $L=\{0^{n^2}1,\,n\in\mathbb{N}\,\}$, whose prefix language is $\mathit{pref}\,(L)=\{0\}^*\cup L$.",
+33,"Computational complexity of calculating mean vs median?
+
+Suppose we have a list $L$ consisting of $N$ numbers (may include repetitions).
+
+
+
+I am curious which is more computationally intensive to calculate, the mean or the median?
+
+
+
+Naively, I would suppose calculating the mean involves summing up the $N$ numbers and then dividing by $N$, hence it has linear $O(N)$ complexity.
+
+
+
+Computing the median would need to perform some sort of sorting algorithm, https://en.wikipedia.org/wiki/Sorting_algorithm, it seems the best algorithm performs at $O(n\log n)$ complexity.
+
+
+
+Hence, for general $N$, it is more computationally intensive to calculate median? Is my reasoning correct?
+
+
+
+Thanks for any help.",
+183,"Non-regular language whose prefix language is regular
+
+I understand that prefix of a regular language is regular, but I am unable to get my head around this:
+
+
+
+
+  
+Give an example of a non-regular language $A ⊆ \{0, 1\}^*$ for which $\operatorname{Prefix}(A)$ is regular.",
+168,"Are the languages recognized by deterministic one-counter machines equivalent to deterministic context free language?
+
+In Introduction to Automata Theory, Languages, and Computation, John Hopcroft mentioned[1]
+
+
+
+
+  
+In fact the languages of one counter machines are accepted by deterministic PDA's although the proof is surprisingly complex.
+
+
+
+
+
+How to prove that?
+
+
+
+In contrast, is there a language that is accepted by some DPDA but can't be accepted by any non-deterministic one counter machines?
+
+
+Reference
+
+
+[1]: John E. Hopcroft and Rajeev Motwani and Jeffrey D. Ullman (2006). Introduction to Automata Theory, Languages, and Computation. Boston/MA: Addison Wesley. P359.",
+186,"Connection between finite state machines and algorithms
+
+One of my favourite topics from university was automata theory and formal languages — is there a word that encompasses both? I understand its use in verification, requirements and safety engineering, but I am wondering whether or not it can be used for algorithm construction? That is, I have a problem, and instead of going directly into ""algorithmic thinking"" I try to model it as an automaton or a grammar first, solve it and can infer the limiting run time behaviour (Big O)?
+
+
+What are the limitations with this approach? Have any major algorithms been invented using this approach?",
+95,"Is time complexity more important than space complexity?
+
+I've noticed quite a few cryptographic algorithms speak mainly of the time complexity of an algorithm. For example, with a hashing function h, find x given y = h(x). We normally speak on how long it will take. Or the time to find the discrete log for a public key.
+
+
+
+Edit:
+
+
+
+While writing this question, I pondered that maybe because for most algorithms in cryptography (that I have seen) , have O(1) space time complexity. i.e. If the solution does not work, we throw it away and encrypt.
+
+
+
+Clarification on this will be really helpful.",
+102,"Is the language of words that are unbalanced in the first half context-free?
+
+(Practice exam question in computational models)
+
+
+
+Definition: A word $w\in \{0,1\}^*$ is called balanced if it contains the same number of $0$s as $1$s.
+
+
+
+Let $L = \{w\in \{0,1\}^*\mid |w|$ is even and the first half of $w$ is unbalanced$\}$. Determine whether or not $L$ is context-free and prove your answer. You may do so by drawing an NPDA which recognizes $L$, using the closure properties of CFLs, or the relevant pumping lemma.
+
+
+
+This question has been bugging me for a while; my gut tells me it isn't context-free since any PDA that recognizes it would have to check the balance of the string read thus far while simultaneously measuring its length and non-deterministically choosing an unbalanced point to validate as the middle of the word. I also haven't been able to express it as a union or concatenation of two CFLs or find a CFG which generates it.
+
+
+
+On the other hand, I haven't been able to either find a word in the language that can't be pumped or prove that every word can be pumped.
+
+
+
+Does anyone have any ideas on how to proceed?",
+44,"Minimum-cut with minimum number of edges
+
+I am sure many folks here know the famous min-cut max-flow theorem - the capacity of the minimum cut is equal to the maximum flow from a given source, s, to a given sink, t, in a graph.
+
+
+
+Firstly, let's state (for completeness) that an s-t cut is the partitioning of the vertices in the graph, into two parts, such that the source s is in one partition and the sink t is in the other. The cut-set is the set of edges that are going from vertices in the partition that contains s to those in the other partition. 
+
+
+
+There may be multiple s-t cuts that have the same capacity as the min-cut (with different sized cut sets). The problem that I wish to solve is, how to find the minimum s-t cut that also has the minimum size cut set?
+
+
+
+For example, in the following graph where s = 0 and t = 4:
+
+
+
+
+
+
+
+We can clearly see that the capacity of the minimum cut is 2. One possible way to  get this is to take edges 0-2 and 1-3 (This cut set has size 2). Another possible way to do this is to take edge 3-4 instead (This cut set has size 1) which is the optimal answer.
+
+
+
+I have researched about this question and some people are saying that we need to transform the edge capacity, C, of every edge to C * (|E| + 1)  - 1, where |E| is the number of edges in the graph.
+
+
+
+One such discussion here: https://codeforces.com/blog/entry/51748 
+
+Another such discussion here: https://stackoverflow.com/questions/38408852/finding-the-lowest-amount-of-edges-in-all-minimum-cuts-in-flow-network
+
+
+
+The problem is, I don't understand why this formula works. In particular, why do we need to multiply by (|E| + 1) and not some other number? I cannot see how multiplying by any other number would ""change"" the augmenting paths in the graph as stated in the cited links.
+
+
+
+Could someone please advise me?
+
+
+
+Edit: The offset in the formula should be +1 and not -1 in order to get the cut-set of the smallest size.",
+120,"Language of ambiguous words
+
+Consider an ambiguous context-free grammar $G$. Define $A(G)$ the set of ambiguous words, meaning:
+$$A(G) = \{u\in L(G) \mid u \text{ has at least two derivation trees for }G\}$$
+Can we say something about $A(G)$ in the general case? In particular, is $A(G)$ a context-free language?",
+126,"Complement of a DFA without final states
+
+Let $L_1=\{Q,\Sigma,q_0,\delta,Q\}$ be a DFA that accepts a language $L$ and where all the states are also final states. If we want a DFA that accepts the complement of $L$, we swap its accepting states with its non-accepting states, that is $\overline{L_1}=\{Q,\Sigma,q_0,\delta,Q-Q\}$. In this case we have a DFA without final states. Is this still a DFA? Is it regular?",
+101,"Are modern programming languages context-free?
+
+Which language class are today's modern programming languages like Java, JavaScript, and Python in?
+
+
+It appears (?) they are not context-free and not regular languages.
+
+
+Are these programming languages context-sensitive or decidable languages? I am very confused!
+
+
+I know that context-free is more powerful than regular languages and that context-sensitive is more powerful than context-free.
+
+
+Are modern programming languages both context-free and context-sensitive?",
+12,"Ackermann Function without Recursion or Stack
+
+I have been studying the necessity of a WHILE loop when defining the Ackermann Function.
+I am looking to write a program to compute the Ackermann function in a high level language such as Python or JavaScript to compare it to the WHILE language.
+
+
+The Ackermann function is defined recursively, and recursive calls do not exist in the WHILE language.
+
+
+Every program with an alternative method to recursion has used a stack. Stacks do not exist in the WHILE language. Is there any way to program the Ackermann function in a HLL without a stack or recursion?",
+170,"Is $\{a^ib^ja^k \mid j \text{ is odd, then } k=i^2+j ;\ j \text{ is even, then } k =i+j\}$ context-free?
+
+$L=\{a^ib^ja^k \mid j \text{ is odd, then } k=i^2+j
+;\ j \text{ is even, then } k =i+j\}$
+
+
+I tried writing $L$ as the union of the language created with $j$ odd and the one with $j$ even.
+
+
+When $j$ is odd, I can prove using the pumping lemma that it is not a cfl.
+
+
+When $j$ is even, I can prove that it is a cfl by writing a context-free grammar for it.
+
+
+But then the union of a cfl and a non-cfl doesn't really help me prove $L$ is a cfl or not.
+
+
+How do I proceed?",
+188,"How is CLR(1) grammar more powerful than LALR(1) grammar
+
+I am unable to understand how Canonical LR(1) grammar is more powerful than LookAhead LR(1). Both have lookahead symbols in their items and works almost similarly, so how can CLR(1) derive a larger set of languages than LALR(1).",
