@@ -140,3 +140,11 @@ The existing labels.csv is sufficient to reproduce training; live recollection c
 
 Repository: https://github.com/munsakad/ai201-project3-takemeter-starter-v2026
 Submit that URL through the Course Portal; portal submission has not been performed by this assistant.
+
+## Part 2 testing plan
+
+Prediction recorded before reading baseline output: the fine-tuned model should beat zero-shot classification on automata questions phrased as algorithm problems because it learned the topic priority boundary.
+
+Keep criteria.md, label_definitions.txt, and labels.csv frozen. Run seeds 42, 7, and 2024 with original settings first. Diagnose those results before choosing one training change. Confidence is already criterion 5, not a new stretch feature. No optional stretch is claimed.
+
+The staff answer key is not present. Student-authored staff labels, staff comparison/adjudication, and the independent human audit remain pending; AI labels cannot establish human agreement.
