@@ -1,0 +1,143 @@
+[
+  {
+    "seed": 42,
+    "n_test": 30,
+    "accuracy": 0.9666666666666667,
+    "f1_macro": 0.9666295884315907,
+    "per_label": {
+      "algorithm": {
+        "precision": 1.0,
+        "recall": 0.9333333333333333,
+        "f1": 0.9655172413793104,
+        "support": 15
+      },
+      "formal_language": {
+        "precision": 0.9375,
+        "recall": 1.0,
+        "f1": 0.967741935483871,
+        "support": 15
+      }
+    },
+    "confusion": {
+      "algorithm": {
+        "algorithm": 14,
+        "formal_language": 1
+      },
+      "formal_language": {
+        "algorithm": 0,
+        "formal_language": 15
+      }
+    },
+    "confidence": {
+      "mean_when_right": 0.6618661284446716,
+      "mean_when_wrong": 0.5427337288856506,
+      "accuracy_most_confident_third": 1.0,
+      "accuracy_least_confident_third": 0.9,
+      "n_per_third": 10
+    },
+    "device": "cpu",
+    "device_name": "CPU",
+    "torch_version": "2.14.1+cpu",
+    "max_length": 256,
+    "epochs": 3,
+    "learning_rate": 2e-05,
+    "batch_size": 16,
+    "base_model": "distilbert-base-uncased",
+    "labels_sha256": "8b965fc96fdd45bfcd4a39df34c388454cf41ae475ad27ce820e132b0506ab5b",
+    "test_text_sha256": "cb8c756d9e29b4607c9cef0ebcf06de2382d18a0459277fd67b26cf5637b6839"
+  },
+  {
+    "seed": 7,
+    "n_test": 30,
+    "accuracy": 0.9666666666666667,
+    "f1_macro": 0.9666295884315907,
+    "per_label": {
+      "algorithm": {
+        "precision": 1.0,
+        "recall": 0.9333333333333333,
+        "f1": 0.9655172413793104,
+        "support": 15
+      },
+      "formal_language": {
+        "precision": 0.9375,
+        "recall": 1.0,
+        "f1": 0.967741935483871,
+        "support": 15
+      }
+    },
+    "confusion": {
+      "algorithm": {
+        "algorithm": 14,
+        "formal_language": 1
+      },
+      "formal_language": {
+        "algorithm": 0,
+        "formal_language": 15
+      }
+    },
+    "confidence": {
+      "mean_when_right": 0.6199588179588318,
+      "mean_when_wrong": 0.5574411749839783,
+      "accuracy_most_confident_third": 1.0,
+      "accuracy_least_confident_third": 0.9,
+      "n_per_third": 10
+    },
+    "device": "cpu",
+    "device_name": "CPU",
+    "torch_version": "2.14.1+cpu",
+    "max_length": 256,
+    "epochs": 3,
+    "learning_rate": 2e-05,
+    "batch_size": 16,
+    "base_model": "distilbert-base-uncased",
+    "labels_sha256": "8b965fc96fdd45bfcd4a39df34c388454cf41ae475ad27ce820e132b0506ab5b",
+    "test_text_sha256": "f897e18a796080dcd1bf3125e50713a738c466ed53af9a1807b7cd9bebe4c262"
+  },
+  {
+    "seed": 2024,
+    "n_test": 30,
+    "accuracy": 0.9,
+    "f1_macro": 0.899888765294772,
+    "per_label": {
+      "algorithm": {
+        "precision": 0.875,
+        "recall": 0.9333333333333333,
+        "f1": 0.9032258064516129,
+        "support": 15
+      },
+      "formal_language": {
+        "precision": 0.9285714285714286,
+        "recall": 0.8666666666666667,
+        "f1": 0.896551724137931,
+        "support": 15
+      }
+    },
+    "confusion": {
+      "algorithm": {
+        "algorithm": 14,
+        "formal_language": 1
+      },
+      "formal_language": {
+        "algorithm": 2,
+        "formal_language": 13
+      }
+    },
+    "confidence": {
+      "mean_when_right": 0.617251455783844,
+      "mean_when_wrong": 0.5309287905693054,
+      "accuracy_most_confident_third": 1.0,
+      "accuracy_least_confident_third": 0.7,
+      "n_per_third": 10
+    },
+    "device": "cpu",
+    "device_name": "CPU",
+    "torch_version": "2.14.1+cpu",
+    "max_length": 256,
+    "epochs": 3,
+    "learning_rate": 2e-05,
+    "batch_size": 16,
+    "base_model": "distilbert-base-uncased",
+    "labels_sha256": "8b965fc96fdd45bfcd4a39df34c388454cf41ae475ad27ce820e132b0506ab5b",
+    "test_text_sha256": "07d1d4e95c7ee2aa92bcae57471c22d6aa70ac9c6669ed4ef0b99f9e9673e2e4"
+  }
+]

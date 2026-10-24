@@ -54,9 +54,35 @@ def main():
                 lines += ['', f'### Seed {r["seed"]}', '', '| true / predicted | ' + ' | '.join(labels) + ' |', '|---|' + '---|' * len(labels)]
                 for label in labels:
                     lines.append('| ' + label + ' | ' + ' | '.join(str(r['confusion'][label][p]) for p in labels) + ' |')
+    if before:
+        lines += ['', '## Verdicts and Diagnoses', '',
+                  '1. Accuracy: MET before; every seed is above 0.75. The 0.0667 spread shows some split sensitivity, below the assignment’s ten-point warning.',
+                  '2. Each-label F1: MET before; the minimum across all labels and seeds is ' + f"{min(v['f1'] for r in before for v in r['per_label'].values()):.4f}, above 0.70.",
+                  '3. Label balance: MET; both labels have 100/200 rows (50%). This is a frozen dataset check, so retraining does not create three new balance measurements.',
+                  '4. Independent agreement: PENDING, not established. There are no independent human labels; model metrics cannot diagnose or satisfy this criterion. Obtain the blinded audit rather than lowering the target.',
+                  '5. Confident-third accuracy: MET before; all three most-confident thirds score 1.0000 against a target of 0.80. Each contains only ten posts, so this does not establish probability calibration.', '',
+                  'Across before trials, four algorithm instances were called formal_language, versus two in reverse (test sets overlap, so these are not six unique posts). Seed 42’s largest off-diagonal cell is one algorithm -> formal_language. The matrices show a topic-boundary error but cannot distinguish inconsistent weak labels from model error. No underrepresented label is present; both have 100 examples. The unrelated staff taxonomy cannot establish which CS training labels are inconsistent.']
+    lines += ['', '## The Improvement', '',
+              'One change: maximum input length 128 -> 256 tokens. A tokenizer audit found 153/200 posts exceed 128 tokens and 81 exceed 256. Longer context could expose the requested object needed for the CS priority rule. This is a tested hypothesis, not a demonstrated cause of the before errors. Training still starts from pretrained weights for each seed; epochs, learning rate, batch size, data, and criteria stay fixed.']
+    if before and after and len(after) == 3:
+        lines += ['', '| Seed | Before accuracy | After accuracy | Difference |', '|---|---|---|---|']
+        for b, a in zip(before, after):
+            lines.append(f"| {b['seed']} | {b['accuracy']:.4f} | {a['accuracy']:.4f} | {a['accuracy']-b['accuracy']:+.4f} |")
+        delta = sum(a['accuracy']-b['accuracy'] for b, a in zip(before, after))/3
+        lines += ['', f'Mean accuracy changed by {delta:+.4f}. ' + ('The change helped mean accuracy on these splits.' if delta > 0 else 'The change did not improve mean accuracy on these splits.'),
+                  'The after-run verdicts use the same thresholds and require all three seeds to pass; see Run Log — After. Three overlapping small test sets do not establish a general improvement beyond this dataset.']
+    else:
+        lines += ['', 'After trials are incomplete; no improvement claim is made yet.']
     lines += ['', '## Agreement Report', '',
               'Pending student annotations and TF-provided data/staff_labels.csv. No agreement rate or human adjudication is claimed. The staff running-forum taxonomy differs from this project’s CS-topic taxonomy; its disagreements cannot directly identify a CS label-pair error.', '',
-              'Criterion 4 separately requires an unaided independent human audit of 20 frozen CS posts. The staff exercise cannot substitute for it. Criterion 3 is a dataset property repeated for context, not three independent experiments.']
+              'Criterion 4 separately requires an unaided independent human audit of 20 frozen CS posts. Use data/human_audit_posts.csv, sampled exactly as prescribed; labels and tags are hidden. The staff exercise cannot substitute for it. Criterion 3 is a dataset property repeated for context, not three independent experiments.', '',
+              '## What’s Still Broken', '',
+              'Independent human agreement is unresolved because the required human annotations are unavailable. Next, complete the blinded audit and the staff worksheet, obtain the TF key, run agreement.py, and adjudicate each disagreement by the written rules in piles (a), (b), or (c). No agreement_results.json is fabricated. These human tasks are where automated work stops.', '',
+              'The labels were intended to capture the requested CS object, including algorithms about automata. The off-diagonal counts show the model sometimes routes across that boundary; high scores on tag-assisted labels do not prove it learned that semantic rule or that humans would agree.', '',
+              '## How I Used AI — Part 2', '',
+              'The assistant implemented the runner, executed the local baseline and requested fine-tunes, generated the numeric report, proposed the longer-context hypothesis from tokenizer counts, and wrote the diagnoses. No student-authored annotations, staff key, independent audit, or human adjudication is claimed. Criteria, taxonomy, and existing training labels remain frozen.', '',
+              '## Validation', '',
+              'Run scripts/verify_testing.py after all six trials complete to recompute accuracy/F1, verify frozen input hashes, check paired test sets and settings, and confirm baseline posts exactly match test_split.csv. scripts/test_testing_report.py tests strict all-seeds verdicts and missing evidence. The existing scripts/verify_submission.py passed; original criteria, definitions, labels, results, and held-out file remain unchanged. The environment smoke check reported 8 passes and a disk-space preflight failure (8.5 GB available versus its 9 GB recommendation before baseline download); the actual evaluations ran, but the free-space check remains a limitation.']
     report = '\n'.join(lines) + '\n'
     (ROOT / 'TESTING_REPORT.md').write_text(report, encoding='utf-8')
     readme = ROOT / 'README.md'
