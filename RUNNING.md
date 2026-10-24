@@ -329,3 +329,28 @@ before you push.
 
 **Do not delete and recreate this repository.** You submit the same URL both
 units.
+
+## Part 2 reproducible evaluation
+
+Run from the repository root using the project environment:
+
+```powershell
+$env:HF_HOME = "$PWD/.cache/huggingface"
+.venv/Scripts/python.exe -X utf8 baseline.py --trained results.json
+$env:HF_HUB_OFFLINE = '1' # after model download
+.venv/Scripts/python.exe -X utf8 scripts/run_testing.py --label before
+# Choose and document ONE change after inspecting the before results.
+.venv/Scripts/python.exe -X utf8 scripts/run_testing.py --label after --max-length 256
+.venv/Scripts/python.exe -X utf8 scripts/report_testing.py
+```
+
+The runner executes the training/evaluation definitions from the notebook, restarts
+from pretrained weights for every seed, and leaves Unit 5 results and test_split
+untouched. Existing run files are protected from accidental overwrite. Partial
+runs contain only completed seeds. Compare only matching seeds and test hashes.
+
+Fill all 30 blank labels in my_staff_labels.csv yourself using data/staff_taxonomy.md.
+Once saved, obtain data/staff_labels.csv from the TF and run agreement.py. Never
+substitute generated answers for the missing staff key. Adjudicate every mismatch
+with a rule citation and one of piles (a), (b), or (c). Criterion 4 additionally
+needs an independent human to label the prescribed 20 CS questions unaided.

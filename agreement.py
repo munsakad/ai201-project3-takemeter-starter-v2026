@@ -50,6 +50,14 @@ for _stream in (sys.stdout, sys.stderr):
         pass
 
 LABEL_COLUMNS = ("label", "staff_label", "my_label", "your_label")
+STAFF_LABELS = {"analysis", "hot_take", "reaction"}
+
+
+def validate_labels(df, column, path):
+    invalid = df[column].isna() | ~df[column].astype(str).str.strip().isin(STAFF_LABELS)
+    if invalid.any():
+        print(f"{path}: {int(invalid.sum())} blank or invalid labels; complete the worksheet first.", file=sys.stderr)
+        sys.exit(1)
 
 
 def normalise(text):
@@ -92,6 +100,10 @@ def load(path, pd):
         sys.exit(1)
 
     column = label_column(df, path)
+    validate_labels(df, column, path)
+    if df['text'].isna().any() or df['text'].map(normalise).eq('').any() or df['text'].map(normalise).duplicated().any():
+        print(f"{path}: blank or duplicate post text.", file=sys.stderr)
+        sys.exit(1)
     rows = {}
     for text, label in zip(df["text"], df[column]):
         rows[normalise(text)] = (str(text), str(label).strip())
@@ -121,6 +133,10 @@ def load_pair(posts_path, labels_path, pd):
             sys.exit(1)
 
     column = label_column(labels, labels_path)
+    validate_labels(labels, column, labels_path)
+    if posts['id'].isna().any() or labels['id'].isna().any() or posts['id'].duplicated().any() or labels['id'].duplicated().any():
+        print('Staff IDs must be present and unique.', file=sys.stderr)
+        sys.exit(1)
     by_id = dict(zip(labels["id"], labels[column]))
 
     rows = {}
